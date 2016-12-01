@@ -1,0 +1,3 @@
+include ':app'
+
+/*this is where all references to other module aar files will go so that it is used as a lib*/

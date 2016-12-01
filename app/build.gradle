@@ -1,0 +1,38 @@
+apply plugin: 'com.android.application'
+apply plugin: 'net.vivin.gradle-semantic-build-versioning'
+
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.1"
+    defaultConfig {
+        applicationId "com.example.ryan.test"
+        minSdkVersion 15
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        version = "1.0.0-SNAPSHOT"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    /*once the repo has been defined we can add the dependencies included in this repo*/
+
+    dependencies {
+        compile fileTree(dir: 'libs', include: ['*.jar'])
+        androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+            exclude group: 'com.android.support', module: 'support-annotations'
+        })
+        compile 'com.android.support:appcompat-v7:25.0.1'
+        testCompile 'junit:junit:4.12'
+    }
+
+
+
+    /*dependencies are defined as 'groupID:artifactID:VersionNumber'*/
+}
